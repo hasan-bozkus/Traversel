@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,26 +9,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EFAbout2Dal : IGenericDal<About2>, IAbout2Dal
+    public class EFAbout2Dal : GenericRepository<About2>, IAbout2Dal
     {
-        public void Delete(About2 t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<About2> GetList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Insert(About2 t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(About2 t)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
