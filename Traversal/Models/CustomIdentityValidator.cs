@@ -39,5 +39,14 @@ namespace Traversal.Models
 				Description = $"Parola minimum bir sembol karakterli olmalıdır ('*'-'+')!"
 			};
 		}
+
+		public override IdentityError PasswordRequiresDigit()
+		{
+			return new IdentityError()
+			{
+				Code = "PasswordRequiresDigit",
+				Description = $"Parola minimum bir rakamlı olmalıdır ('0'-'9')!"
+			};
+		}
 	}
 }
