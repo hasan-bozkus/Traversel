@@ -9,5 +9,6 @@ namespace BusinnesLayer.Abtstract
 {
 	public interface IReservationService : IGenericService<Reservetion>
 	{
+		List<Reservetion> GetListApprovalReservation(int id);
 	}
 }
