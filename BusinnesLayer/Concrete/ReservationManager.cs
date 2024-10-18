@@ -18,11 +18,6 @@ namespace BusinnesLayer.Concrete
 			_ReservationDal = reservationDal;
 		}
 
-        public List<Reservetion> GetListApprovalReservation(int id)
-        {
-			return _ReservationDal.GetListByFilter(x => x.AppUserID == id && x.Status == "Onay Bekliyor");
-        }
-
         public void TAdd(Reservetion t)
 		{
 			_ReservationDal.Insert(t);
@@ -43,7 +38,22 @@ namespace BusinnesLayer.Concrete
 			return _ReservationDal.GetList();
 		}
 
-		public void TUpdate(Reservetion t)
+        public List<Reservetion> TGetListWithReservationByAccepted(int id)
+        {
+			return _ReservationDal.GetListWithReservationByAccepted(id);
+        }
+
+        public List<Reservetion> TGetListWithReservationByPrevious(int id)
+        {
+			return _ReservationDal.GetListWithReservationByPrevious(id);
+        }
+
+        public List<Reservetion> TGetListWithReservationByWithApproval(int id)
+        {
+			return _ReservationDal.GetListWithReservationByWithApproval(id);
+        }
+
+        public void TUpdate(Reservetion t)
 		{
 			_ReservationDal.Update(t);
 		}

@@ -15,21 +15,26 @@ namespace DataAccessLayer.EntityFramework
     {
         public List<Reservetion> GetListWithReservationByAccepted(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                return context.Reservetions.Include(x => x.Destination).Where(x => x.Status == "Onaylandý" && x.AppUserID == id).ToList();
+            };
         }
 
         public List<Reservetion> GetListWithReservationByPrevious(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                return context.Reservetions.Include(x => x.Destination).Where(x => x.Status == "Geçmiþ Rezervasyon" && x.AppUserID == id).ToList();
+            };
         }
 
         public List<Reservetion> GetListWithReservationByWithApproval(int id)
         {
-            //using (var context = new Context())
-            //{
-            //    return context.Reservetions.Include(x => x.Destination).Where();
-            //};
-            throw new NotImplementedException();
+            using (var context = new Context())
+            {
+                return context.Reservetions.Include(x => x.Destination).Where(x => x.Status == "Onay Bekliyor" && x.AppUserID == id).ToList();
+            };
         }
     }
 }
