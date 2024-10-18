@@ -8,6 +8,15 @@
 
 <h1>Aktif Rezervasyonlarım</h1>
 
+@if (!Model.Any())
+{
+    <div class="container mt-5">
+        <h4 style="color:crimson">Aktif rezervasyonunuz bulunmamaktadır..</h4>
+    </div>
+}
+else
+{
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
@@ -27,3 +36,4 @@
         </tr>
     }
 </table>
+}

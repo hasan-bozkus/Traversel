@@ -7,23 +7,32 @@
 
 <h1>Onay Bekleyen Rezervasyonlar</h1>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Lokasyon</th>
-        <th>Kişi Sayısı</th>
-        <th>Rezervasyon Tarihi</th>
-        <th>Durum</th>
-    </tr>
-    @foreach(var item in Model)
-    {
-        <tr>
-            <td>@item.ReservationID</td>
-            <td>@item.Destination.City</td>
-            <td>@item.PersonCount</td>
-            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
-            <td>@item.Status</td>
-        </tr>
-    }
-</table>
+@if (!Model.Any())
+{
+    <div class="container mt-5">
+        <h4 style="color:crimson">Onay bekleyen rezervasyonunuz bulunmamaktadır..</h4>
+    </div>
+}
+else
+{
 
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Lokasyon</th>
+            <th>Kişi Sayısı</th>
+            <th>Rezervasyon Tarihi</th>
+            <th>Durum</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReservationID</td>
+                <td>@item.Destination.City</td>
+                <td>@item.PersonCount</td>
+                <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </table>
+}
