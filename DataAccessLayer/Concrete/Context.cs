@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(localdb)\\hasan; database=TraversalDB; integrated security=True;");
+            optionsBuilder.UseSqlServer("server=(localdb)\\hasan; database=TraversalDB; integrated security=True;Connection Timeout=30;");
         }
 
         public DbSet<About> Abouts { get; set; }

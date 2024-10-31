@@ -1,0 +1,68 @@
+﻿@model EntityLayer.Concrete.Destination
+@{
+    ViewData["Title"] = "UpdateDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Rota Güncelleme Sayfası</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="DestinationID" />
+
+    <div class="form-group">
+        @Html.Label("Şehir")
+        <input type="text" asp-for="City" id="personcount" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Gün Gece")
+        <input type="text" asp-for="DayNight" id="restime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Fiyat")
+        <input type="text" asp-for="Price" id="restime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Ana Görsel")
+        <input type="text" asp-for="Image" id="restime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Kapasite")
+        <input type="text" asp-for="Capacity" id="restime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Kapar Görseli")
+        <input type="text" asp-for="CoverImage" id="restime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Görsel 2")
+        <input type="text" asp-for="Image2" id="restime" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Detay 1")
+        <textarea cols="30" rows="5" asp-for="Details1" class="form-control"></textarea>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Detay 2")
+        <textarea cols="30" rows="5" asp-for="Details2" class="form-control"></textarea>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Varsa Eklemek İstedikleriniz")
+        <input type="text" asp-for="Description" id="description" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <button class="btn btn-outline-success"> Güncelle</button>
+    </div>
+</form>
+
+
