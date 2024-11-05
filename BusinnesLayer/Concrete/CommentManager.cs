@@ -47,5 +47,10 @@ namespace BusinnesLayer.Concrete
         {
             _commentDal.Update(t);
         }
+
+        public List<Comment> TGetListCommentWithDestinaiton()
+        {
+            return _commentDal.GetListCommentWithDestinaiton();
+        }
     }
 }

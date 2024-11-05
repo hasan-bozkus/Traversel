@@ -1,4 +1,8 @@
+using BusinnesLayer.Abtstract;
+using BusinnesLayer.Concrete;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +34,16 @@ namespace Traversal
         {
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+
+            services.AddScoped<ICommentService, CommentManager>();
+            services.AddScoped<ICommentDal, EFCommentDal>();
+
+            services.AddScoped<IDestinationService, DestinationManager>();
+            services.AddScoped<IDestinationDal, EFDestinationDal>();
+
+            services.AddScoped<IAppUserService, AppUserManager>();
+            services.AddScoped<IAppUserDal, EFAppUserDal>();
+
             services.AddControllersWithViews();
             
             services.AddMvc(config =>
