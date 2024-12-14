@@ -1,0 +1,31 @@
+﻿@model MailRequest
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni E-Posta Gönderme Sayfası</h1>
+<form method="post">
+
+    <div class="form-group">
+        @Html.Label("Alıcı E-Posta")
+        <input type="text" asp-for="ReceiverMail" id="personcount" class="form-control" />
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.Label("Konu Başlığı")
+        <input type="text" asp-for="Subject" id="personcount" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Mesaj İçeriği")
+        <textarea cols="30" rows="5" asp-for="Body" class="form-control"></textarea>
+        <span asp-validation-for="Body" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <button class="btn btn-outline-success"> Gönder</button>
+    </div>
+</form>
+
