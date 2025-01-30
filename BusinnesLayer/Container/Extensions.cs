@@ -1,7 +1,11 @@
 using BusinnesLayer.Abtstract;
 using BusinnesLayer.Concrete;
+using BusinnesLayer.ValidationRules;
+using BusinnesLayer.ValidationRules.AnnouncementValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using DTOLayer.DTOs.AnnouncementDTOs;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -30,9 +34,22 @@ namespace BusinnesLayer.Container
             services.AddScoped<IGuideService, GuideManager>();
             services.AddScoped<IGuideDal, EFGuideDal>();
 
+            services.AddScoped<IContactUsService, ContactUsManager>();
+            services.AddScoped<IContactUsDal, EFContactUsDal>();
+
+            services.AddScoped<IAnnouncementService, AnnouncementManager>();
+            services.AddScoped<IAnnouncementDal, EFAnnouncementDal>();
+
             services.AddScoped<IExcelService, ExcelManager>();
 
             services.AddScoped<IPdfService, PdfManager>();
+        }
+
+        public static void CustomerValidator(this IServiceCollection services)
+        {
+            services.AddTransient<IValidator<AddAnnouncementDto>, AnnouncementValidator>();
+            services.AddTransient<IValidator<UpdateAnnouncementDto>, AnnouncementUpdateValidator>();
+
         }
     }
 }
