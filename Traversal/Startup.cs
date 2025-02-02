@@ -1,15 +1,19 @@
 using BusinnesLayer.Container;
 using DataAccessLayer.Concrete;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System;
 using System.IO;
 using Traversal.Models;
 
@@ -55,6 +59,20 @@ namespace Traversal
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+            {
+                x.LoginPath = "/Login/SignIn";
+            });
+
+            services.ConfigureApplicationCookie(opts =>
+             {
+                 opts.Cookie.HttpOnly = true;
+                 opts.ExpireTimeSpan = TimeSpan.FromMinutes(100);
+                 opts.AccessDeniedPath = new PathString("/Login/AccsessDenied/");
+                 opts.LoginPath = "/Login/SignIn/";
+                 opts.SlidingExpiration = true;
+             });
+
             services.AddMvc();
         }
 
@@ -93,7 +111,7 @@ namespace Traversal
 
                 endpoints.MapControllerRoute(
                  name: "areas",
-                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                 pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
                );
 
                
