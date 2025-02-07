@@ -1,9 +1,12 @@
 using BusinnesLayer.Abtstract;
+using BusinnesLayer.Abtstract.AbstractUow;
 using BusinnesLayer.Concrete;
+using BusinnesLayer.Concrete.ConcreteUow;
 using BusinnesLayer.ValidationRules;
 using BusinnesLayer.ValidationRules.AnnouncementValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using DataAccessLayer.UnitOfWork;
 using DTOLayer.DTOs.AnnouncementDTOs;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,6 +46,11 @@ namespace BusinnesLayer.Container
             services.AddScoped<IExcelService, ExcelManager>();
 
             services.AddScoped<IPdfService, PdfManager>();
+
+            services.AddScoped<IAccountDal,  EFAccountDal>();
+            services.AddScoped<IAccountService,  AccountManager>();
+
+            services.AddScoped<IUnitOfWorkDal, UnitOfWorkDal>();
         }
 
         public static void CustomerValidator(this IServiceCollection services)
