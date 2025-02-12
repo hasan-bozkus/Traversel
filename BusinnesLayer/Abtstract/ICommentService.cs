@@ -11,5 +11,7 @@ namespace BusinnesLayer.Abtstract
     {
         List<Comment> TGetDestinationById(int id);
         List<Comment> TGetListCommentWithDestinaiton();
+        List<Comment> TGetListCommentWithDestinationAndUser(int id);
+
     }
 }

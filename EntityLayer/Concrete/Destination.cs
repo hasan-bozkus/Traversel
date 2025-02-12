@@ -22,8 +22,12 @@ namespace EntityLayer.Concrete
         public string Details2 { get; set; }
         public string Image2 { get; set; }
         public bool status { get; set; }
+        public DateTime Date { get; set; }
 
         public List<Comment> Comments { get; set; }
         public List<Reservetion> Reservetions { get; set; }
+
+        public int? GuideID { get; set; }
+        public Guide Guide { get; set; }
     }
 }
