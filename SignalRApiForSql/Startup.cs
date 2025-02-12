@@ -7,15 +7,15 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using SignalRApi.DAL;
-using SignalRApi.Hubs;
-using SignalRApi.Model;
+using SignalRApiForSql.DAL;
+using SignalRApiForSql.Hubs;
+using SignalRApiForSql.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SignalRApi
+namespace SignalRApiForSql
 {
     public class Startup
     {
@@ -29,7 +29,9 @@ namespace SignalRApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<VisitorService>();
+
+            services.AddControllers();
+            services.AddScoped<VisitorService>();
             services.AddSignalR();
 
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
@@ -40,12 +42,12 @@ namespace SignalRApi
                        .AllowCredentials();
             }));
 
-            services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddDbContext<Context>(opt =>
+               opt.UseSqlServer(Configuration["DefaultConnection"]));
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SignalRApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SignalRApiForSql", Version = "v1" });
             });
         }
 
@@ -56,7 +58,7 @@ namespace SignalRApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SignalRApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SignalRApiForSql v1"));
             }
 
             app.UseRouting();

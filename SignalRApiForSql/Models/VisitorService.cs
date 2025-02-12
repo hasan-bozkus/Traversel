@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
-using SignalRApi.DAL;
-using SignalRApi.Hubs;
+using SignalRApiForSql.DAL;
+using SignalRApiForSql.Hubs;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SignalRApi.Model
+namespace SignalRApiForSql.Models
 {
     public class VisitorService
     {
@@ -34,17 +34,17 @@ namespace SignalRApi.Model
         public List<VisitorChart> GetVisitorChartList()
         {
             List<VisitorChart> visitorCharts = new List<VisitorChart>();
-            using(var command = _context.Database.GetDbConnection().CreateCommand())
+            using (var command = _context.Database.GetDbConnection().CreateCommand())
             {
-                command.CommandText = "Select*From crosstab ('Select VisitDate, City, CityVisitCount From Visitors Order By 1,2') As ct(VisitDate Date, City1 int, City2 int, City3 int, City4 int, City5 int);";
+                command.CommandText = "query";
                 command.CommandType = System.Data.CommandType.Text;
                 _context.Database.OpenConnection();
-                using(var reader = command.ExecuteReader())
+                using (var reader = command.ExecuteReader())
                 {
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         VisitorChart visitorChart = new VisitorChart();
-                        visitorChart.VisitDate = reader.GetDateTime(0).ToString("dd-MM-yyyy");
+                        visitorChart.VisitDate = reader.GetDateTime(0).ToShortDateString();
                         Enumerable.Range(1, 5).ToList().ForEach(x =>
                         {
                             visitorChart.Counts.Add(reader.GetInt32(x));
