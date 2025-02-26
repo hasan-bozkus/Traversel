@@ -2,42 +2,65 @@
 
 @{
     ViewData["Title"] = "UserEdit";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
-<h1>Profil Düzenleme Sayfası</h1>
+<!-- Basic Tables start -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Profil Güncelleme Syafası</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <p class="card-text">Profil ile ilgili bilgilerinizi bu sayfadan güncelleyebilirsiniz.</p>
+                    <div class="table-responsive">
+                        <form method="post" enctype="multipart/form-data">
+                            @Html.Label("Adınız")
+                            <input type="text" asp-for="Name" class="form-control" />
+                            <br />
+                            @Html.Label("Soyadınız")
+                            <input type="text" asp-for="Surname" class="form-control" />
+                            <br />
+                            @Html.Label("E-Posta adresiniz")
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <br />
+                            @Html.Label("Kullanıcı adınız")
+                            <input type="text" asp-for="UserName" class="form-control" />
+                            <br />
+                            @Html.Label("Telefon Numaranız")
+                            <input type="text" asp-for="PhoneNumber" class="form-control" />
+                            <br />
+                            @Html.Label("Şifre")
+                            <input type="password" asp-for="Password" class="form-control" />
+                            <br />
+                            @Html.Label("Şifre tekrarı")
+                            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                            <br />
+                            <div class="form-group">
+                                <label>Resim Seçin</label>
+                                <input type="file" class="form-control-file" asp-for="Image" />
+                            </div>
 
-<form method="post" enctype="multipart/form-data">
-    @Html.Label("Adınız")
-    <input type="text" asp-for="Name" class="form-control" />
-    <br />
-    @Html.Label("Soyadınız")
-    <input type="text" asp-for="Surname" class="form-control" />
-    <br />
-    @Html.Label("E-Posta adresiniz")
-    <input type="email" asp-for="Email" class="form-control" />
-    <br />
-    @Html.Label("Kullanıcı adınız")
-    <input type="text" asp-for="UserName" class="form-control" />
-    <br />
-    @Html.Label("Telefon Numaranız")
-    <input type="text" asp-for="PhoneNumber" class="form-control" />
-    <br />
-    @Html.Label("Şifre")
-    <input type="password" asp-for="Password" class="form-control" />
-    <br />
-    @Html.Label("Şifre tekrarı")
-    <input type="password" asp-for="ConfirmPassword" class="form-control" />
-    <br />
-    <div class="form-group">
-        <label>Resim Seçin</label>
-        <input type="file" class="form-control-file" asp-for="Image" />
+                            <br />
+
+                            <button class="btn btn-primary">Kaydet</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <br />
-
-    <button class="btn btn-primary">Kaydet</button>
-</form>
-
-
-
+</div>
+<!-- Basic Tables end -->
