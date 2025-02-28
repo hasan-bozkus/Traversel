@@ -1,4 +1,7 @@
-﻿<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true" data-img="~/member/theme-assets/images/backgrounds/02.jpg">
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+
+<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true" data-img="~/member/theme-assets/images/backgrounds/02.jpg">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto">
@@ -16,34 +19,34 @@
                 <a href="/Member/Dashboard/MemberDashboard"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/Profile/UserEdit/"><i class="ft-pie-chart"></i><span class="menu-title" data-i18n="">Profilim</span></a>
+                <a href="/Member/Profile/UserEdit/"><i class="ft-pie-chart"></i><span class="menu-title" data-i18n="">@localizer["Profilim"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/Reservation/MyCurrentReservation"><i class="ft-droplet"></i><span class="menu-title" data-i18n="">Aktif Rezervasyon</span></a>
+                <a href="/Member/Reservation/MyCurrentReservation"><i class="ft-droplet"></i><span class="menu-title" data-i18n="">@localizer["Aktif Rezervasyon"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/Reservation/MyOldReservation"><i class="ft-clock"></i><span class="menu-title" data-i18n="">Geçmiş Rezervasyon</span></a>
+                <a href="/Member/Reservation/MyOldReservation"><i class="ft-clock"></i><span class="menu-title" data-i18n="">@localizer["Geçmiş Rezervasyon"]</span></a>
             </li>
             <li class="active">
-                <a href="/Member/Reservation/MyApprovalReservation"><i class="ft-cloud"></i><span class="menu-title" data-i18n="">Onay Bekleyen Rezv.</span></a>
+                <a href="/Member/Reservation/MyApprovalReservation"><i class="ft-cloud"></i><span class="menu-title" data-i18n="">@localizer["Onay Bekleyen Rezv."]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/Reservation/NewReservation"><i class="ft-navigation"></i><span class="menu-title" data-i18n="">Yeni Rezervasyon</span></a>
+                <a href="/Member/Reservation/NewReservation"><i class="ft-navigation"></i><span class="menu-title" data-i18n="">@localizer["Yeni Rezervasyon"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/Comment/Index"><i class="ft-command"></i><span class="menu-title" data-i18n="">Yorumlarım</span></a>
+                <a href="/Member/Comment/Index"><i class="ft-command"></i><span class="menu-title" data-i18n="">@localizer["Yorumlarım"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/Destinations/Index"><i class="ft-map"></i><span class="menu-title" data-i18n="">Tur Rotaları</span></a>
+                <a href="/Member/Destinations/Index"><i class="ft-map"></i><span class="menu-title" data-i18n="">@localizer["Tur Rotaları"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Member/LastDestinations/Index"><i class="ft-navigation-2"></i><span class="menu-title" data-i18n="">Son Rotalar</span></a>
+                <a href="/Member/LastDestinations/Index"><i class="ft-navigation-2"></i><span class="menu-title" data-i18n="">@localizer["Son Rotalar"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="/Default/Index"><i class="ft-power"></i><span class="menu-title" data-i18n="">Siteye Git</span></a>
+                <a href="/Default/Index"><i class="ft-power"></i><span class="menu-title" data-i18n="">@localizer["Siteye Git"]</span></a>
             </li>
             <li class=" nav-item">
-                <a href="#"><i class="ft-lock"></i><span class="menu-title" data-i18n="">Çıkış Yap</span></a>
+                <a href="#"><i class="ft-lock"></i><span class="menu-title" data-i18n="">@localizer["Çıkış Yap"]</span></a>
             </li>
         </ul>
     </div>
