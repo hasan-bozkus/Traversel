@@ -11,7 +11,6 @@ using Traversal.Areas.Admin.Models;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
     [Route("Admin/[controller]/[action]/{id?}")]
     public class RoleController : Controller
     {

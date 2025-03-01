@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("[area]/[controller]/[action]")]
     public class DestinationController : Controller
     {
        private readonly IDestinationService _destinationService;

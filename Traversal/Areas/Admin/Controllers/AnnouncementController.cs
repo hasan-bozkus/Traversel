@@ -11,7 +11,7 @@ using Traversal.Areas.Admin.Models;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Route("[area]/[controller]/[action]")]
     public class AnnouncementController : Controller
     {
         private readonly IAnnouncementService _announcementService;

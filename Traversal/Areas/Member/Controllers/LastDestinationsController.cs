@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Traversal.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Route("[area]/[controller]/[action]")]
     public class LastDestinationsController : Controller
     {
         private readonly IDestinationService _destinationService;

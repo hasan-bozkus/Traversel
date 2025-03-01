@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Route("[area]/[controller]/[action]")]
     public class ApiExchangeController : Controller
     {
         public async Task<IActionResult> Index()

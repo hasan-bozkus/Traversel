@@ -8,7 +8,7 @@ using Traversal.CQRS.Queries.GuideQueries;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Route("[area]/[controller]/[action]")]
     public class GuideMediatRController : Controller
     {
 

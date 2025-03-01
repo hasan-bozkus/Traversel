@@ -7,8 +7,8 @@ using Traversal.Areas.Admin.Models;
 
 namespace Traversal.Areas.Admin.Controllers
 {
+    [Route("[area]/[controller]/[action]")]
     [Area("Admin")]
-    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly IAccountService _accountService;

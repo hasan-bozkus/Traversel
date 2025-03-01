@@ -10,7 +10,7 @@ using Traversal.Areas.Admin.Models;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Route("[area]/[controller]/[action]")]
     public class ApiMovieController : Controller
     {
         public async Task<IActionResult> Index()

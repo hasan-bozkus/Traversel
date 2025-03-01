@@ -8,6 +8,7 @@ using Traversal.Models;
 namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("[area]/[controller]/[action]")]
     public class CityController : Controller
     {
         private readonly IDestinationService _destinationService;
